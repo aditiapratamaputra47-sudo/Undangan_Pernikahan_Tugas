@@ -1,0 +1,435 @@
+/* Import Font Elegan */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Great+Vibes&family=Lora:wght@400;700&display=swap');
+
+/* Variabel Warna */
+:root {
+    --primary-color: #8b6e4d; /* Emas Cokelat */
+    --secondary-color: #4b3d2c; /* Cokelat Tua */
+    --background-light: #fefcf5; /* Kertas Krem Sangat Muda */
+    --background-dark: #eee8d5; /* Latar Belakang Lingkungan */
+    --button-rsvp: #704241; /* Merah Maroon */
+    --header-font: 'Playfair Display', serif;
+    --script-font: 'Great Vibes', cursive;
+    --text-font: 'Lora', serif;
+    /* Corak Pola Dot Kecil yang Elegan */
+    --corak-url: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10"><rect width="10" height="10" fill="transparent"/><circle cx="5" cy="5" r="1" fill="%23d4c2a7" opacity="0.4"/></svg>');
+}
+
+/* --- Global Style & Corak Latar Belakang --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--text-font);
+    text-align: center;
+    background-color: var(--background-dark);
+    background-image: var(--corak-url); /* Corak Latar Belakang Utama */
+    color: var(--secondary-color);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+.undangan-wrapper {
+    max-width: 700px;
+    margin: 30px auto;
+    background-color: var(--background-light);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 40px 20px;
+    position: relative;
+    overflow: hidden;
+    border: 5px double var(--primary-color); /* Border Ganda Elegan */
+    
+    /* Animasi Awal */
+    opacity: 0; 
+    transform: translateY(20px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+/* Animasi Saat Terlihat (Dipicu oleh JavaScript) */
+.undangan-wrapper.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- Headers & Titles --- */
+h3 {
+    font-family: var(--header-font);
+    color: var(--primary-color);
+    font-size: 1.8em;
+    margin-top: 40px;
+    margin-bottom: 15px;
+    border-bottom: 2px solid var(--primary-color);
+    display: inline-block;
+    padding-bottom: 5px;
+    /* Animasi Title */
+    animation: fade-in-up 1s ease-out 0.5s backwards;
+}
+
+.nama-utama {
+    font-family: var(--script-font);
+    font-size: 4em;
+    color: var(--primary-color);
+    letter-spacing: 2px;
+    margin: 10px 0 5px;
+    line-height: 1.1;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+.ampersand {
+    font-family: var(--header-font);
+    font-size: 2em;
+    color: var(--primary-color);
+    margin: 0;
+    display: inline-block;
+    /* Animasi putar lembut */
+    animation: rotate-in 1s ease-out;
+}
+
+.salam-pembuka {
+    font-family: var(--text-font);
+    font-style: italic;
+    font-size: 1.1em;
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+}
+.kotak-pembuka {
+    /* Layout dan Posisi */
+    width: 80%; /* Atur lebar kotak */
+    margin: 20px auto; /* Atur margin atas/bawah dan posisi di tengah */
+    padding: 15px 20px; /* Padding di dalam kotak */
+    text-align: center; /* Teks di tengah */
+    
+    /* Styling Border */
+    border: 3px solid #947b67; /* Garis tepi/border dengan warna cokelat tua */
+    
+    /* --- INI KUNCI UNTUK SUDUT SIKU-SIKU (TIDAK BULAT) --- */
+    border-radius: 0; 
+    /* --------------------------------------------------- */
+    
+    /* Efek Tambahan */
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2); /* Bayangan lembut */
+    background-color: transparent; /* Latar belakang transparan (mengikuti body/wrapper) */
+    color: #5d4a3c; /* Warna teks (sesuaikan jika perlu) */
+    font-size: 1.1em; /* Ukuran font (sesuaikan jika perlu) */
+    line-height: 1.4;
+}
+
+.tanggal-waktu {
+    font-size: 1.8em;
+    font-weight: 700;
+    color: var(--button-rsvp);
+    margin: 20px 0 10px;
+    /* Animasi skala masuk */
+    animation: scale-in 0.8s ease-out;
+}
+
+/* --- Foto & Galeri --- */
+.foto-pasangan {
+    width: 300px; /* Atur lebar sesuai keinginan */
+    height: 400px; /* Atur tinggi agar menjadi kotak sempurna jika foto di-crop */
+    margin: 30px auto;
+    overflow: hidden; /* Penting untuk menyembunyikan bagian foto yang berlebih */
+    
+    /* Garis tepi yang sama dengan kotak teks */
+    border: 3px solid #947b67;
+    
+    /* --- INI KUNCI UTAMA: SUDUT SIKU-SIKU (Hapus semua kelengkungan) --- */
+    border-radius: 0; 
+    /* ------------------------------------------------------------------ */
+
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2); 
+}
+
+.foto-pasangan img {
+    /* Pastikan gambar mengisi kotak pembungkus */
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Penting agar foto tidak terdistorsi */
+    
+    /* Kunci kedua: Hapus border-radius dari gambar juga */
+    border-radius: 0;
+}
+
+.galeri-foto {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px 0 40px;
+}
+
+/* Sembunyikan checkbox saklar */
+.zoom-check {
+    display: none;
+}
+
+/* --- Foto & Galeri (Versi Perbaikan) --- */
+.galeri-foto {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px 0 40px;
+    /* Pastikan container tidak memotong gambar saat membesar */
+    overflow: visible; 
+}
+
+/* Sembunyikan checkbox saklar */
+.zoom-check {
+    display: none;
+}
+
+/* Membungkus setiap item foto */
+.galeri-foto .item {
+    position: relative;
+    /* Menghapus z-index tetap agar tidak mengunci lapisan */
+}
+
+.galeri-foto .foto-item {
+    width: 150px;
+    height: 150px;
+    border-radius: 12px;
+    border: 3px solid var(--primary-color);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.3s;
+    object-fit: cover;
+    cursor: zoom-in;
+    display: block;
+}
+
+/* --- SOLUSI AGAR TIDAK BERTABRAKAN --- */
+
+/* 1. Angkat lapisan pembungkus saat checkbox dicentang */
+.zoom-check:checked ~ label {
+    position: relative;
+    z-index: 9999; /* Sangat tinggi agar di atas semua elemen */
+}
+
+/* 2. Gaya gambar saat membesar */
+.zoom-check:checked ~ label .foto-item {
+    transform: scale(2.2); /* Sedikit lebih besar */
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    cursor: zoom-out;
+    border-radius: 8px;
+    /* Memastikan gambar berada di posisi paling depan */
+    position: relative; 
+    z-index: 10000;
+}
+
+/* 3. Memberikan ruang kosong sementara agar layout tidak berantakan (opsional) */
+.zoom-check:checked + .item {
+    z-index: 9999;
+}
+
+/* Penyesuaian Responsif Mobile */
+@media (max-width: 600px) {
+    .galeri-foto .foto-item {
+        width: 140px; /* Ukuran pas untuk 2 kolom di HP */
+        height: 140px;
+    }
+    
+    .zoom-check:checked ~ label .foto-item {
+        transform: scale(1.8); /* Zoom lebih kecil di mobile agar tidak keluar layar */
+    }
+}
+/* --- Keluarga & Sanak Saudara --- */
+.daftar-keluarga {
+    display: flex;
+    justify-content: space-around;
+    text-align: left;
+    margin: 20px 0 40px;
+}
+
+.mempelai {
+    width: 45%;
+}
+
+.mempelai ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 10px;
+    font-size: 0.95em;
+}
+
+.mempelai h4 {
+    color: var(--button-rsvp);
+    margin-bottom: 5px;
+    font-family: var(--header-font);
+}
+
+/* --- Peta & Tombol --- */
+.peta-lokasi {
+    margin-top: 20px;
+    overflow: hidden;
+    border-radius: 10px;
+    border: 3px solid var(--primary-color);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.peta-lokasi iframe {
+    width: 100%;
+    height: 350px;
+    border: 0;
+}
+
+.tombol-aksi {
+    margin-top: 25px;
+    margin-bottom: 30px;
+}
+
+.tombol-aksi a, .tombol-maps {
+    display: inline-block;
+    text-decoration: none;
+    color: #ffffff;
+    padding: 10px 20px;
+    margin: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    /* Animasi pulse lembut */
+    animation: pulse 2s infinite; 
+}
+
+.tombol-rsvp {
+    background-color: var(--button-rsvp);
+}
+
+.tombol-maps {
+    background-color: var(--primary-color);
+}
+
+.tombol-rsvp:hover, .tombol-maps:hover {
+    opacity: 0.9;
+}
+
+/* --- COVER PEMBUKA (LAYER MUSIK) --- */
+#opening-cover {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--background-dark);
+    background-image: var(--corak-url);
+    background-size: 20px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    transition: opacity 1s ease-out; /* Animasi hilang */
+}
+
+#open-invitation-btn {
+    cursor: pointer;
+    background-color: var(--button-rsvp);
+    color: white;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s;
+}
+
+/* --- Keyframes Animasi --- */
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(139, 110, 77, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(139, 110, 77, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(139, 110, 77, 0);
+    }
+}
+
+@keyframes fade-in-up {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes rotate-in {
+    from {
+        opacity: 0;
+        transform: rotate(-90deg) scale(0.5);
+    }
+    to {
+        opacity: 1;
+        transform: rotate(0deg) scale(1);
+    }
+}
+
+@keyframes scale-in {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes bounce-in {
+    0% {
+        transform: scale(0.3);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* --- Responsive Dasar --- */
+@media (max-width: 600px) {
+    .undangan-wrapper {
+        margin: 0;
+        box-shadow: none;
+        border-radius: 0;
+        padding: 20px 10px;
+        border: none;
+    }
+    .nama-utama {
+        font-size: 3em;
+    }
+    .foto-pasangan {
+        width: 200px;
+        height: 250px;
+    }
+    .daftar-keluarga {
+        flex-direction: column;
+        align-items: center;
+    }
+    .mempelai {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    .galeri-foto {
+        gap: 5px;
+    }
+    .galeri-foto img {
+        width: calc(50% - 5px); /* 2 foto per baris di mobile */
+    }
+    .tanggal-waktu {
+        font-size: 1.5em;
+    }
+}
